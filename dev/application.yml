@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: myapp-argo-application
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/bruce-mig/argo-go-micro-config.git
+    targetRevision: HEAD
+    path: dev
+  destination:
+    server: https://kubernetes.default.svc #internal service name for k8s api server
+    namespace: myapp
+
+  # ensures that the namespace specified exists in the destination cluster
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+
+  # enable automatic sync
+  automated:
+    # enable automatic self healing
+    # by default, manual changes made to live cluster will not trigger automated sync
+    selfHeal: true
+    # enable automatic pruning
+    # by default, auto sync will not delete resources
+    prune: true
