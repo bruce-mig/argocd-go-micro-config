@@ -18,6 +18,10 @@ spec:
         ports:
           - containerPort: 1025
           - containerPort: 8025
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
 
 ---
 

@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: mail-service
-        image: "tsawler/mail-service:1.0.0"
+        image: "bmigeri/mail-service:latest"
         env:
           - name: MAIL_DOMAIN
             value: "localhost"
@@ -34,6 +34,10 @@ spec:
             value: "john.smith@example.com"
         ports:
           - containerPort: 80
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
 
 ---
 

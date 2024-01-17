@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: logger
-        image: "tsawler/logger-service:1.0.1"
+        image: "bmigeri/logger-service:latest"
         env:
           - name: RABBIT_URL
             value: "amqp://guest:guest@rabbitmq"
@@ -22,6 +22,10 @@ spec:
           - containerPort: 80
           - containerPort: 5001
           - containerPort: 50001
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
 
 ---
 
@@ -41,7 +45,7 @@ spec:
       port: 5001
       name: rpc-port
       targetPort: 5001
-    - protocol:
+    - protocol: TCP
       port: 50001
       name: grpc-port
       targetPort: 50001

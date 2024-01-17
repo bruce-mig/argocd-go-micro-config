@@ -7,8 +7,8 @@ spec:
   project: default
   source:
     repoURL: https://github.com/bruce-mig/argo-go-micro-config.git
-    targetRevision: HEAD
-    path: dev
+    targetRevision: HEAD # last commit in repo
+    path: dev # sync a specific path in repo
   destination:
     server: https://kubernetes.default.svc #internal service name for k8s api server
     namespace: myapp

@@ -14,12 +14,16 @@ spec:
     spec:
       containers:
       - name: listener
-        image: "tsawler/listener-service:1.0.0"
+        image: "bmigeri/listener-service:latest"
         env:
           - name: RABBIT_URL
             value: "amqp://guest:guest@rabbitmq"
         ports:
           - containerPort: 80
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
 
 ---
 
