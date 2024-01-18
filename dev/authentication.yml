@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: authentication-service
-        image: "bmigeri/authentication-service:latest"
+        image: "bmigeri/authentication:latest"
         env:
           - name: DSN
             value: "host=host.minikube.internal port=5432 user=postgres password=password dbname=users sslmode=disable timezone=UTC+2 connect_timeout=5"

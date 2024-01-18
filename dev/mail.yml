@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: mail-service
-        image: "bmigeri/mail-service:latest"
+        image: "bmigeri/mail:latest"
         env:
           - name: MAIL_DOMAIN
             value: "localhost"
